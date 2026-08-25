@@ -47,5 +47,20 @@ Ao projetar uma aplicação, é preciso decidir onde cada tarefa vai acontecer. 
 5. **Calcular o total de uma compra:** 
    * **Ambos.** O *Client-side* calcula o total provisório no carrinho para o usuário ver os valores mudando em tempo real. No momento do checkout, o *Server-side* recalcula tudo usando os preços oficiais do banco de dados para evitar que o cliente manipule os valores no navegador.
    
-6. **Controlar uma sessão de usuário:** 
+6. **Controlar uma sessão de usuário:**
+
+## 🐛 Registro de Erro Intencional (Exercício 01)
+
+Durante a execução do Exercício 01, provocamos intencionalmente um erro no código trocando o comando `console.log` por `Console.log` (com a letra "C" maiúscula). 
+
+**Mensagem de erro exibida no navegador:**
+> Uncaught ReferenceError: Console is not defined at (anonymous) @ exercicio01.js:11
+
+**Motivo do Erro:**
+Esse erro aconteceu porque a linguagem JavaScript é **case-sensitive**, ou seja, ela faz uma distinção estrita entre letras maiúsculas e minúsculas. O objeto nativo do navegador que nos permite imprimir mensagens na tela de desenvolvedor se chama exatamente `console` (tudo em minúsculo). 
+
+Ao digitarmos `Console` com a primeira letra maiúscula, o interpretador do JavaScript não reconhece o comando nativo e acha que estamos tentando usar uma variável que nós mesmos criamos. Como nós nunca criamos uma variável chamada `Console`, o navegador trava e retorna um erro de referência (`ReferenceError`), avisando que a palavra não foi definida.
+
+**Correção:**
+Para corrigir o código, bastou alterar a primeira letra novamente para minúsculo, retornando ao comando padrão da linguagem: `console.log('mensagem');`.
    * **Server-side.** Embora o cliente guarde a "chave" (como um cookie ou token JWT), quem gera essa chave, define a validade e verifica se a sessão ainda é legítima ou se foi revogada é sempre o servidor.
