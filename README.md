@@ -63,4 +63,19 @@ Ao digitarmos `Console` com a primeira letra maiúscula, o interpretador do Java
 
 **Correção:**
 Para corrigir o código, bastou alterar a primeira letra novamente para minúsculo, retornando ao comando padrão da linguagem: `console.log('mensagem');`.
-   * **Server-side.** Embora o cliente guarde a "chave" (como um cookie ou token JWT), quem gera essa chave, define a validade e verifica se a sessão ainda é legítima ou se foi revogada é sempre o servidor.
+
+## 🧮 Tipos de Dados e Coerção (Exercício 04)
+
+**Por que `20 + 5` pode resultar em `205` no JavaScript?**
+
+Isso ocorre devido a um comportamento nativo da linguagem conhecido como **coerção de tipo** (Type Coercion). 
+
+A função `prompt()` tem como padrão sempre retornar os dados do usuário no formato de texto (`string`), independentemente do que foi digitado. Ou seja, se o usuário digita o número `20`, o JavaScript recebe a string `"20"`.
+
+O operador `+` no JavaScript possui duas finalidades distintas:
+1. **Soma matemática:** quando aplicado entre dois valores do tipo `number`.
+2. **Concatenação:** quando pelo menos um dos valores envolvidos é do tipo `string`.
+
+Ao tentar executar `"20" + 5`, o interpretador do JavaScript identifica a presença de uma `string`. Em vez de realizar uma operação matemática, ele automaticamente converte o número `5` para texto e apenas "junta" as duas partes, resultando na string `"205"`. 
+
+Para garantir que a operação matemática ocorra corretamente (resultando em `25`), é indispensável tratar o dado de entrada, convertendo a `string` capturada pelo `prompt()` explicitamente para um `number` utilizando funções como `Number()`, `parseInt()` ou `parseFloat()`.
