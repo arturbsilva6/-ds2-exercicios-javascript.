@@ -1,3 +1,18 @@
+## ⚙️ Processamento de Páginas Dinâmicas e Bancos de Dados
+
+### Em qual momento uma página dinâmica é processada?
+Uma página dinâmica é processada **em tempo de execução (em tempo real)**, exatamente no momento em que o servidor web recebe a requisição do cliente (navegador ou aplicativo). 
+
+Em vez de simplesmente devolver um arquivo `.html` que já estava pronto, o servidor aciona a aplicação back-end. Essa aplicação executa lógicas de programação para montar a estrutura visual e popular os dados da página sob demanda. O documento HTML final, de fato, só é "construído" milissegundos antes de ser enviado como resposta pela rede.
+
+### Por que um Banco de Dados pode ser necessário?
+Para que a página seja dinâmica, ela precisa exibir informações que variam de acordo com o contexto, e esses dados não podem ficar "chumbados" (hardcoded) no código-fonte. O banco de dados se torna uma peça central por vários motivos:
+
+* **Personalização:** É o banco de dados que permite que cada usuário veja uma página diferente e única (como os dados do próprio perfil, um carrinho de compras ou recomendações customizadas).
+* **Persistência de Dados:** Garante que as informações (cadastros, transações, configurações) fiquem salvas de forma segura e permanente, não desaparecendo quando o servidor é reiniciado.
+* **Gestão de Conteúdo e Escalabilidade:** Permite alterar o conteúdo do site sem precisar alterar o código. Por exemplo, cadastrar um novo produto, alterar o preço de um serviço ou registrar uma nova ocorrência é feito adicionando registros ao banco, e a página dinâmica automaticamente reflete essa atualização para os usuários.
+* **Consultas Complexas:** Estrutura grandes volumes de informações, permitindo realizar buscas rápidas, cruzamento de dados e geração de relatórios de forma eficiente.
+  
 ## ⚖️ Client-side vs. Server-side
 
 Compreender a diferença entre onde o código é executado é fundamental para a arquitetura de qualquer aplicação. Abaixo está um comparativo direto entre as duas abordagens:
